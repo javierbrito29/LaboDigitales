@@ -12,15 +12,30 @@ always @ ( iAddress )
 begin
 	case (iAddress)
 
+
+
+/*	//Programa para verificar resta y encendido del LEd
+	0: oInstruction = { `NOP ,24'd4000       }; 
+	1: oInstruction = { `STO , `R1,16'hffff };
+	2: oInstruction = { `STO , `R2,16'h1    }; 
+	3: oInstruction = { `NOP ,24'd4000       }; 
+	4: oInstruction = { `SUB ,`R7,`R1,`R2    };
+	5: oInstruction = { `LED ,8'b0,`R7,8'b0 };	
+*/	
+	
+
+
+/*   //Programa para verificar pipeline funcionando
 	0: oInstruction = { `NOP ,24'd4000       }; 
 	1: oInstruction = { `STO , `R1,16'hcafe };
 	2: oInstruction = { `STO , `R2,16'h1    }; 
 	3: oInstruction = { `NOP ,24'd4000       }; 
-
 	4: oInstruction = { `ADD ,`R7,`R1,`R2    };
-	5: oInstruction = { `SUB ,`R6,`R7,`R2    };
+	5: oInstruction = { `SUB ,`R6,`R7,`R2    };*/
 
-/*	
+
+//Programa original
+	0: oInstruction = { `NOP ,24'd4000} ;
 	1: oInstruction = { `STO , `R7,16'b0001 };
 	2: oInstruction = { `STO ,`R3,16'h1     }; 
 	3: oInstruction = { `STO, `R4,16'd1000 };
@@ -31,14 +46,14 @@ begin
 	7: oInstruction = { `STO ,`R2,16'd500 };
 //LOOP1:	
 	8: oInstruction = { `ADD ,`R1,`R1,`R3    }; 
-	9: oInstruction = { `BLE ,`LOOP1,`R1,`R2 }; 
+	9: oInstruction = { `BLE ,`LOOP1,`R1,`R2 }; //Brinca a 8 hasta que R1=R2 500ciclos
 	
 	10: oInstruction = { `ADD ,`R5,`R5,`R3    };
-	11: oInstruction = { `BLE ,`LOOP2,`R5,`R4 };	
+	11: oInstruction = { `BLE ,`LOOP2,`R5,`R4 };	//Brinca a 5 hasta que R5=R4 1000ciclos
 	12: oInstruction = { `NOP ,24'd4000       }; 
 	13: oInstruction = { `ADD ,`R7,`R7,`R3    };
 	14: oInstruction = { `JMP ,  8'd2,16'b0   }; 
-*/	
+	
 	default:
 		oInstruction = { `LED ,  24'b10101010 };		//NOP
 	endcase	

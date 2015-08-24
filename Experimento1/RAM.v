@@ -25,13 +25,7 @@ begin
 	     
 			oDataOut0 <= Ram[iReadAddress0]; 
 			oDataOut1 <= Ram[iReadAddress1]; 
-		
- 		
-		
-		
-		
-		
-		
+			
 end 
 endmodule
 
